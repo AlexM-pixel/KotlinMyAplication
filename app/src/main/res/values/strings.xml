@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinMyAplicationTasks</string>
+    <string name="buttom_second_task">кнопка для второго задания</string>
 </resources>
