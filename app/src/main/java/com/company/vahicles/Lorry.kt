@@ -1,8 +1,17 @@
 package com.company.vahicles
 
-class Lorry : Car() {
-    var carrying: Int = 20
+import com.company.details.Engine
+import com.company.professions.Driver
+
+class Lorry(carClass: String, marka: String, veight: Int, driver: Driver, engine: Engine,carrying:Int) : Car(carClass, marka, veight,
+    driver,
+    engine
+) {
+    var _carrying: Int
+    init {
+        _carrying=carrying
+    }
     override fun toString(): String {
-        return carrying.toString().plus(" ,").plus(engine)
+        return _carrying.toString().plus(" ,").plus(engine)
     }
 }

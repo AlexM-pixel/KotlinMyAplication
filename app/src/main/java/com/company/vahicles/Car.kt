@@ -3,12 +3,27 @@ package com.company.vahicles
 import com.company.details.Engine
 import com.company.professions.Driver
 
-open class Car {
-    val carClass: String = "Ford"
-    val marka: String = "scorpio"
-    val veight: Int = 1500
-    val driver: Driver = Driver()
-    val engine: Engine = Engine("ford",100)
+open class Car(
+    val carClass: String,
+    val marka: String,
+    val veight: Int,
+    val driver: Driver,
+    val engine: Engine
+) {
+    val _carClass: String
+    val _marka: String
+    val _veight: Int
+    val _driver: Driver
+    val _engine: Engine
+
+    init {
+        _carClass = carClass
+        _marka=marka
+        _veight=veight
+        _driver=driver
+        _engine=engine
+    }
+
     fun start() {
         println("Поехали")
     }
@@ -27,10 +42,11 @@ open class Car {
 
     override fun toString(): String {
         return "carClass= ".plus(carClass).plus(" ,marka= ").plus(marka).plus(" ,veight= ")
-            .plus(veight).plus(" , ").plus(driver).plus(" ,").plus(engine).plus(SportCar(300.0))
+            .plus(veight).plus(" , ").plus(driver).plus(" ,").plus(engine)
     }
 
-    fun printInfo() {
-        println(Car().toString())
+    fun printInfo(car:Car): String {
+        //println(car.toString())
+        return car.toString()
     }
 }
