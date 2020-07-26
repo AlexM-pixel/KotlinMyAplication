@@ -45,7 +45,6 @@ class MainActivity2 : AppCompatActivity() {
             if (count != null) {
                 timeBefor = currentTimeMillis()
                 Thread(Runnable {
-                    Thread.sleep(1000)
                     method(count)
                 }).start()
             } else {
@@ -80,7 +79,7 @@ class MainActivity2 : AppCompatActivity() {
                         maxCountMap.put(key,value)
                     }
                 }
-                n+=size+1
+                n+=size
                 length+=size
             }
             executor.execute(worker)

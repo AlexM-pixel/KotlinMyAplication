@@ -36,5 +36,14 @@
         android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
          />
+    <Button
+        android:id="@+id/task3"
+        android:text="@string/task3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

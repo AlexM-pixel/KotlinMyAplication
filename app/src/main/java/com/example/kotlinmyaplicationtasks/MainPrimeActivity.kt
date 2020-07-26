@@ -10,6 +10,7 @@ import com.company.professions.Driver
 import com.company.vahicles.Car
 import com.example.kotlinmyaplicationtasks.task1.MainActivity1
 import com.example.kotlinmyaplicationtasks.task2.MainActivity2
+import com.example.kotlinmyaplicationtasks.task3.MainActivity3
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainPrimeActivity : AppCompatActivity() {
@@ -22,6 +23,10 @@ class MainPrimeActivity : AppCompatActivity() {
         }
         task2.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+        task3.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
     }
