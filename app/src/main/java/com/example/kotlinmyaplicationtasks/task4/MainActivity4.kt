@@ -2,6 +2,7 @@ package com.example.kotlinmyaplicationtasks.task4
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinmyaplicationtasks.R
 import com.facebook.*
@@ -34,18 +35,17 @@ class MainActivity4 : AppCompatActivity() {
                 .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         callbackManager = CallbackManager.Factory.create()
-        facebook_button.setReadPermissions("email", "public_profile")
+        facebook_button.setReadPermissions("email", "public_profile","user_friends")
         facebook_button.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 updateUI()
             }
 
             override fun onCancel() {
-                TODO("Not yet implemented")
             }
 
             override fun onError(error: FacebookException?) {
-                TODO("Not yet implemented")
+                Log.e("111", error.toString())
             }
 
         })
