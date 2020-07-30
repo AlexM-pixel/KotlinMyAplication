@@ -4,18 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrimeActtivity">
+    tools:context=".MainPrimeActivity">
 
     <Button
+        android:id="@+id/task1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/task1"
+        app:layout_constraintEnd_toStartOf="@+id/task2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/task2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/task2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/task1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task1"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+    <Button
+        android:id="@+id/task3"
+        android:text="@string/task3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/button_task4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1"/>
+ <Button
         android:id="@+id/button_task4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="task4"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf=""@+id/task3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/divider1"/>
+                                                          
 </androidx.constraintlayout.widget.ConstraintLayout>
