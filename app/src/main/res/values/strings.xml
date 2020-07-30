@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">KotlinMyAplicationTasks</string>
+    <string name="facebook_app_id">830309394040303</string>
+    <string name="fb_login_protocol_scheme">fb830309394040303</string>
     <string name="buttom_second_task">кнопка для второго задания</string>
     <string name="times_millis">впремя выполнения</string>
     <string name="first_10_words">первые 10 слов</string>
