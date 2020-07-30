@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">KotlinMyAplicationTasks</string>
+    <string name="buttom_second_task">кнопка для второго задания</string>
+    <string name="times_millis">впремя выполнения</string>
+    <string name="first_10_words">первые 10 слов</string>
+    <string name="start_search_words_count">Start</string>
+    <string name="task1">task1</string>
+    <string name="task2">task2</string>
+    <string name="task3">task3</string>
+    <string name="n">N</string>
+    <string name="timeShowCardView">time</string>
 </resources>
