@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">KotlinMyAplicationTasks</string>
+    <string name="alarm_reminder_text">alarm reminder</string>
+    <string name="charge_check_text">charge check</string>
+    <string name="input_time_interval">input time interval</string>
 </resources>
