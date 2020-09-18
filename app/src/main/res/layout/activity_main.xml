@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
-            android:onClick="@{()->userViewModel.addUser()}"
+            android:onClick="@{(view)->userViewModel.addUser(view)}"
             android:paddingStart="46dp"
             android:paddingEnd="46dp"
             android:text="@string/add_button" />

@@ -7,7 +7,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.kotlinmyaplicationtasks.model.User
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @Database(entities = [User::class], version = 2)
 abstract class UsersDatabase : RoomDatabase() {
@@ -31,12 +34,12 @@ abstract class UsersDatabase : RoomDatabase() {
                             UsersDatabase::class.java,
                             DB_NAME
                         )
-                            .allowMainThreadQueries()
+                            //  .allowMainThreadQueries() // раскомичу  если с этими долбаными корутинами не выйдет
                             .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {
                                     Log.e("Database", "onCreateDb")
                                     super.onCreate(db)
-                                     refactorDb(INSTANCE)
+                                    GlobalScope.launch(Dispatchers.IO) { refactorDb(INSTANCE) }
                                 }
                             })
                             .build()
@@ -48,17 +51,20 @@ abstract class UsersDatabase : RoomDatabase() {
         }
 
 
-        fun refactorDb(database: UsersDatabase?) {
+        suspend fun refactorDb(database: UsersDatabase?) {
+            database?.let { db ->
+                withContext(Dispatchers.IO) {
+                    Log.e("Database", "refactorDb")
+                    val userDao: UserDao = database.userDao()
+                    userDao.deleteAll()
 
-            Log.e("Database", "refactorDb")
-            val userDao: UserDao = database!!.userDao()
-            userDao.deleteAll()
-
-            val userOne = User(null, name = "Kolya", age = 80)
-            val user2 = User(null, name = "Katya", age = 8)
-            val user3 = User(null, name = "Sara", age = 30)
-            val user4 = User(null, name = "Jon", age = 20)
-            userDao.insertUser(userOne, user2, user3, user4)
+                    val userOne = User(null, name = "Kolya", age = 80)
+                    val user2 = User(null, name = "Katya", age = 8)
+                    val user3 = User(null, name = "Sara", age = 30)
+                    val user4 = User(null, name = "Jon", age = 20)
+                    userDao.insertUser(userOne, user2, user3, user4)
+                }
+            }
         }
     }
 }

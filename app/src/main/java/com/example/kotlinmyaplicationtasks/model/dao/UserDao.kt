@@ -9,7 +9,7 @@ import com.example.kotlinmyaplicationtasks.model.User
 @Dao
 interface UserDao {
     @Insert
-    fun insertUser(user: User)
+    fun insertUser(user: User):Long
 
     @Insert
      fun insertUser(vararg user: User)
