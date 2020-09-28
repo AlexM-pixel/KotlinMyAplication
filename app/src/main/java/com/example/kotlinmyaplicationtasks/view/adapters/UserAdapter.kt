@@ -3,6 +3,7 @@ package com.example.kotlinmyaplicationtasks.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,9 @@ import com.example.kotlinmyaplicationtasks.R
 import com.example.kotlinmyaplicationtasks.databinding.ItemForRecyclerBinding
 import com.example.kotlinmyaplicationtasks.model.User
 
-class UserAdapter(private val usersList: MutableList<User>) :
+class UserAdapter() :
     RecyclerView.Adapter<UserAdapter.MyHolder>() {
-
+    private  var usersList: MutableList<User> = mutableListOf()
     class MyHolder(val binding: ItemForRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.user = user
@@ -34,6 +35,7 @@ class UserAdapter(private val usersList: MutableList<User>) :
         usersList.addAll(list)
               notifyDataSetChanged()
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val inflaterMy = LayoutInflater.from(parent.context)

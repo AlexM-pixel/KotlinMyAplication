@@ -19,6 +19,7 @@
             android:id="@+id/items_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
             android:layout_margin="8dp"
             android:text="@{user.name}" />
 
@@ -27,6 +28,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="@{String.valueOf(user.age)}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{user.gender}"
             />
     </LinearLayout>
 </layout>

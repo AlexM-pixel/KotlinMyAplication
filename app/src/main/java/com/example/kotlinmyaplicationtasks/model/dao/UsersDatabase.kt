@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.kotlinmyaplicationtasks.model.User
 import kotlinx.coroutines.Dispatchers
@@ -12,13 +13,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@Database(entities = [User::class], version = 2)
+@Database(entities = [User::class], version = 5)
 abstract class UsersDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
     companion object {
-
         private var INSTANCE: UsersDatabase? = null
         private const val DB_NAME = "users.db"
 
@@ -42,6 +42,7 @@ abstract class UsersDatabase : RoomDatabase() {
                                     GlobalScope.launch(Dispatchers.IO) { refactorDb(INSTANCE) }
                                 }
                             })
+                            .addMigrations(MIGRATION_1_2)
                             .build()
                     }
                 }
@@ -50,6 +51,12 @@ abstract class UsersDatabase : RoomDatabase() {
             return INSTANCE!!
         }
 
+        private val MIGRATION_1_2 : Migration= object :Migration(2,5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE user ADD COLUMN gender TEXT")
+            }
+
+        }
 
         suspend fun refactorDb(database: UsersDatabase?) {
             database?.let { db ->
@@ -58,10 +65,10 @@ abstract class UsersDatabase : RoomDatabase() {
                     val userDao: UserDao = database.userDao()
                     userDao.deleteAll()
 
-                    val userOne = User(null, name = "Kolya", age = 80)
-                    val user2 = User(null, name = "Katya", age = 8)
-                    val user3 = User(null, name = "Sara", age = 30)
-                    val user4 = User(null, name = "Jon", age = 20)
+                    val userOne = User(null, name = "Kolya", age = 80, gender = "male")
+                    val user2 = User(null, name = "Katya", age = 8,gender = "female")
+                    val user3 = User(null, name = "Sara", age = 30,gender = "female")
+                    val user4 = User(null, name = "Jon", age = 20,gender = "male")
                     userDao.insertUser(userOne, user2, user3, user4)
                 }
             }

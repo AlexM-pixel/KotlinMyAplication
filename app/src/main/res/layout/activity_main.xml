@@ -26,10 +26,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_usersId"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="280dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:setAdapter="@{adapter}"
             tools:listitem="@layout/item_for_recycler" />
+
+        <View
+            android:id="@+id/divider_first"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,13 +53,37 @@
 
             <EditText
                 android:id="@+id/age_id"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:hint="set age"
-                android:text="@={userViewModel.age}" />
+                android:inputType="number"
+                android:text="@={userViewModel.set_age}" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:onClick="@{(view)->userViewModel.buttonSetGender(view)}"
+                    android:text="М" />
+
+                <RadioButton
+                    android:id="@+id/radio_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view)->userViewModel.buttonSetGender(view)}"
+                    android:text="Ж" />
+            </RadioGroup>
+
+
         </LinearLayout>
 
         <Button
@@ -66,6 +96,46 @@
             android:paddingStart="46dp"
             android:paddingEnd="46dp"
             android:text="@string/add_button" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="сортировка:"
+            android:textSize="28sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={userViewModel.sort_age}"
+            android:hint="insert age" />
+
+        <CheckBox
+            android:id="@+id/checkBoxMan"
+            android:text="man"
+            android:checked="@={userViewModel.man}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/checkBoxWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={userViewModel.woman}"
+            android:text="woman" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:text="sort"
+    android:onClick="@{()->userViewModel.setAge()}"/>
+
     </LinearLayout>
 
 

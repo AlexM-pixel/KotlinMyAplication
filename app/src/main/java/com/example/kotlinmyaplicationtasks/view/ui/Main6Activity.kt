@@ -16,7 +16,6 @@ import com.example.kotlinmyaplicationtasks.viewModel.UsersViewModel
 class Main6Activity : AppCompatActivity() {
     lateinit var usersViewModel: UsersViewModel
     lateinit var userAdapter: UserAdapter
-    val usersList: MutableList<User> = mutableListOf()
     val binding: ActivityMainBinding by lazy {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
@@ -30,10 +29,8 @@ class Main6Activity : AppCompatActivity() {
 
         Log.e("Database", "viewModel ${usersViewModel.usersListLiveData.value?.size}")     //вот здесь почему-то null всегда
         userAdapter =
-            UserAdapter(usersList)
-        usersViewModel.usersListLiveData.observe(this,
-            Observer { users: MutableList<User> ->
-                userAdapter.setUserList(users)         // изменения в бд засетил в список адаптера
+            UserAdapter()
+        usersViewModel.usersListLiveData.observe(this, Observer { users: List<User> -> userAdapter.setUserList(users)         // изменения в бд засетил в список адаптера
                 Log.e("Database", "observe liveData ${users.size}")
             })
         binding.adapter = userAdapter
