@@ -28,4 +28,7 @@ interface UserDao {
 
     @Query("DELETE from user")
     fun deleteAll()
+
+    @Query("SELECT * from user WHERE (:age IS NULL OR age>= :age) AND (:gender IS NULL OR gender= :gender)")
+   fun getAllSortUsers(age:Int?, gender:String?):LiveData<List<User>>
 }

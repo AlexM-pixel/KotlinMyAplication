@@ -71,15 +71,14 @@
                     android:id="@+id/radioButton_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:onClick="@{(view)->userViewModel.buttonSetGender(view)}"
+                    android:onClick="@{()->userViewModel.setMan()}"
                     android:text="М" />
 
                 <RadioButton
                     android:id="@+id/radio_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{(view)->userViewModel.buttonSetGender(view)}"
+                    android:onClick="@{()->userViewModel.setWoman()}"
                     android:text="Ж" />
             </RadioGroup>
 
@@ -92,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
-            android:onClick="@{(view)->userViewModel.addUser(view)}"
+            android:onClick="@{()->userViewModel.addUser()}"
             android:paddingStart="46dp"
             android:paddingEnd="46dp"
             android:text="@string/add_button" />
@@ -113,28 +112,41 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={userViewModel.sort_age}"
-            android:hint="insert age" />
+            android:hint="insert age"
+            android:text="@={userViewModel.sort_age}" />
 
-        <CheckBox
-            android:id="@+id/checkBoxMan"
-            android:text="man"
-            android:checked="@={userViewModel.man}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <CheckBox
-            android:id="@+id/checkBoxWoman"
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="@={userViewModel.woman}"
-            android:text="woman" />
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:text="sort"
-    android:onClick="@{()->userViewModel.setAge()}"/>
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rButton_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->userViewModel.setMan()}"
+                android:text="М" />
+
+            <RadioButton
+                android:id="@+id/r_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->userViewModel.setWoman()}"
+                android:text="Ж" />
+            <RadioButton
+                android:id="@+id/r_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->userViewModel.setAll_OfGender()}"
+                android:text="all" />
+        </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="@{()->userViewModel.sort()}"
+            android:text="sort" />
 
     </LinearLayout>
 
