@@ -13,7 +13,8 @@ import com.example.kotlinmyaplicationtasks.model.User
 
 class UserAdapter() :
     RecyclerView.Adapter<UserAdapter.MyHolder>() {
-    private  var usersList: MutableList<User> = mutableListOf()
+    private var usersList: MutableList<User> = mutableListOf()
+
     class MyHolder(val binding: ItemForRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.user = user
@@ -25,7 +26,7 @@ class UserAdapter() :
                 if (adapterPosition == RecyclerView.NO_POSITION) {
                     return@setOnClickListener        // вот здесь к чему эта аннотация не могу понять
                 }
-               Toast.makeText(binding.root.context, binding.user?.name,Toast.LENGTH_LONG).show()
+                Toast.makeText(binding.root.context, binding.user?.name, Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -33,9 +34,14 @@ class UserAdapter() :
     fun setUserList(list: List<User>) {
         usersList.clear()
         usersList.addAll(list)
-              notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if (usersList[position].gender.equals("man")) {
+            1
+        } else 2
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val inflaterMy = LayoutInflater.from(parent.context)

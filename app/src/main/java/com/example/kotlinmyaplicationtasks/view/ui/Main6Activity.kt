@@ -28,13 +28,13 @@ class Main6Activity : AppCompatActivity() {
             .create(UsersViewModel::class.java)
 
         Log.e("Database", "viewModel ${usersViewModel.usersListLiveData.value?.size}")     //вот здесь почему-то null всегда
-        userAdapter =
-            UserAdapter()
+        userAdapter = UserAdapter()
         usersViewModel.usersListLiveData.observe(this, Observer { users: List<User> -> userAdapter.setUserList(users)         // изменения в бд засетил в список адаптера
                 Log.e("Database", "observe liveData ${users.size}")
             })
         binding.adapter = userAdapter
         binding.userViewModel = usersViewModel
+
 
 
     }
