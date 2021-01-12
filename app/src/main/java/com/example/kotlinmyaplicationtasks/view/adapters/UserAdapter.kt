@@ -15,7 +15,7 @@ class UserAdapter() :
     RecyclerView.Adapter<UserAdapter.MyHolder>() {
     private var usersList: MutableList<User> = mutableListOf()
 
-    class MyHolder(val binding: ItemForRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
+   inner class MyHolder(val binding: ItemForRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.user = user
             binding.executePendingBindings()
