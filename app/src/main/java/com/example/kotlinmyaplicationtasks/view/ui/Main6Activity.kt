@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +13,7 @@ import com.example.kotlinmyaplicationtasks.databinding.ActivityMainBinding
 import com.example.kotlinmyaplicationtasks.model.User
 import com.example.kotlinmyaplicationtasks.view.adapters.UserAdapter
 import com.example.kotlinmyaplicationtasks.viewModel.UsersViewModel
+import www.sanju.motiontoast.MotionToast
 
 class Main6Activity : AppCompatActivity() {
     lateinit var usersViewModel: UsersViewModel
@@ -27,14 +29,31 @@ class Main6Activity : AppCompatActivity() {
         usersViewModel = ViewModelProvider.AndroidViewModelFactory(application)
             .create(UsersViewModel::class.java)
 
-        Log.e("Database", "viewModel ${usersViewModel.usersListLiveData.value?.size}")     //вот здесь почему-то null всегда
+        Log.e(
+            "Database",
+            "viewModel ${usersViewModel.usersListLiveData.value?.size}"
+        )     //вот здесь почему-то null всегда
         userAdapter = UserAdapter()
-        usersViewModel.usersListLiveData.observe(this, Observer { users: List<User> -> userAdapter.setUserList(users)         // изменения в бд засетил в список адаптера
-                Log.e("Database", "observe liveData ${users.size}")
-            })
+        usersViewModel.usersListLiveData.observe(this, Observer { users: List<User> ->
+            userAdapter.setUserList(users)         // изменения в бд засетил в список адаптера
+            Log.e("Database", "observe liveData ${users.size}")
+        })
+        usersViewModel.usersGenderLiveData.observe(this, Observer {
+            MotionToast.createColorToast(
+                this,
+                "Super!",
+                "здесь описание сообщения",
+                MotionToast.TOAST_SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(
+                    this,
+                    R.font.helvetica_regular
+                )
+            )
+        })
         binding.adapter = userAdapter
         binding.userViewModel = usersViewModel
-
 
 
     }
