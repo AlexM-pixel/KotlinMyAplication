@@ -26,7 +26,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_usersId"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="180dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:setAdapter="@{adapter}"
             tools:listitem="@layout/item_for_recycler" />
@@ -147,6 +147,16 @@
             android:layout_gravity="center_horizontal"
             android:onClick="@{()->userViewModel.sort()}"
             android:text="sort" />
+        <Button
+            android:id="@+id/startActivity_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="start new activity"
+            android:padding="18dp"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_gravity="center"
+            />
 
 
     </LinearLayout>

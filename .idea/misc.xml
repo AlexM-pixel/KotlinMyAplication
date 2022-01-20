@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.159765625" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout-w936dp/activity_login.xml" value="0.190625" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/activity_list_songs.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/activity_remote_songs.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/activity_sign_in.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/content_sign_in.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/item_for_recycler.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Xiaomi/AndroidStudioProjects/KotinAplication/app/src/main/res/layout/songs_item.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
