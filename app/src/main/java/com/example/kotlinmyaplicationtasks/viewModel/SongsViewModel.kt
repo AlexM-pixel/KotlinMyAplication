@@ -49,7 +49,7 @@ class SongsViewModel(application: Application) :
         application.contentResolver
     }
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "Recycle")
     fun getSongsList() {
         val cursor = contentResolver.query(
             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,

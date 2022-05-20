@@ -17,7 +17,6 @@ import java.util.concurrent.*
 class UsersViewModel(application: Application) :
     AndroidViewModel(application) {
     private val userDao: UserDao = UsersDatabase.getDatabase(application).userDao()
-    private val context = getApplication<Application>().applicationContext
     var name: String = ""
     var set_age: String = "0"
     var sort_age: String? = null
